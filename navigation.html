@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+
+        /*CSS FOR NAVIGATION*/
+
+       body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 0;
+       background-color: #CC5500;
+       }
+
+       nav {
+       background-color: black;
+       color: white;
+       width: 200px;
+       height: 230px;
+       position: fixed;
+       top: 60px;
+       bottom: 50px;
+       left: 15px;
+       padding-top: 10px;
+       border-radius: 15px; /* Soft edges */
+       } 
+
+       nav a {
+       display: block;
+       padding: 18px;
+       text-decoration: none;
+       color: white;
+       position: relative;
+       }
+
+      nav a:hover {
+      background-color: #70bae2;
+      }
+
+     .submenu {
+      padding-left: 20px;
+      display: none;
+      position: absolute;
+      top: 70px;
+      width: 200px;
+      left: 101%;
+      background-color: black;
+      border-radius: 15px; /* Soft edges */
+     }
+
+     .nav-item-with-submenu:hover .submenu {
+      display: block;
+     }
+
+     .sub-submenu {
+      padding-left: 20px;
+      display: none;
+      position: absolute;
+      top: 0;
+      width: 200px;
+      left: 101%;
+      background-color: black;
+      border-radius: 15px; /* Soft edges */
+     }
+
+     .submenu:hover .sub-submenu {
+     display: block;
+     }
+
+     .content {
+     margin-left: 220px;
+     padding: 20px;
+     }
+
+     .sas-header {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 50%;
+     }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="">HOME</a>
+        <div class="nav-item-with-submenu">
+          <a href="#">PRODUCTS</a>
+          <div class="submenu">
+            <a href="">PRODUCT 1</a>
+            <a href="">PRODUCT 2</a>
+            <div class="sub-submenu">
+              <a href="">SUB PRODUCT</a>
+              <a href="">SUB PRODUCT</a>
+            </div>
+          </div>
+        </div>
+        <a href="">ABOUT</a>
+        <a href="">CONTACT</a>
+      </nav>
+      
+      <div class="content">
+        <h1 style="color:palevioletred; text-align: center;"></h1>
+        <pre style="font-size:20px; color:black; text-align: center; "></pre>
+      </div>
+
+    <script>
+        
+        // Function to toggle sub-navigation
+        function toggleSubNav(navId) {
+            var nav = document.getElementById(navId);
+            if (nav.style.display === "none") {
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+            }
+        }
+
+        // Add event listener to Products link
+        document.getElementById('products-link').addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default action of link
+            toggleSubNav('products-subnav');
+        });
+
+        // Add event listener to Product 1 link
+        document.querySelector('a[href="#product1"]').addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default action of link
+            toggleSubNav('sub-product1-subnav');
+        });
+    </script>
+</body>
+</html>
